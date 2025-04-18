@@ -511,6 +511,33 @@
   box-sizing: border-box;
 }
 
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-credits {
+  flex: 1;
+  order: 1;
+  text-align: left;
+}
+
+.footer-links {
+  flex: 1;
+  order: 2;
+  text-align: right;
+}
+
+.footer-logo {
+  width: 100%;
+  order: 3;
+}
+
+.footer-disclaimer {
+  width: 100%;
+  order: 4;
+}
+
 @media (min-width: 992px) {
   #featuredReviewsCarousel .slide-wrapper {
     display: flex;
@@ -668,5 +695,34 @@
   .newsletter-form button {
     width: 100% !important;
     margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer-credits,
+  .footer-logo,
+  .footer-links,
+  .footer-disclaimer {
+    width: 100% !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex: none;
+  }
+
+  .footer-credits {
+    order: 1;
+  }
+
+  .footer-logo {
+    order: 2;
+  }
+
+  .footer-links {
+    order: 3;
+  }
+
+  .footer-disclaimer {
+    order: 4;
   }
 }
