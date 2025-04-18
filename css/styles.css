@@ -119,6 +119,7 @@
 .newsletter-section input.form-control::placeholder {
   color: #f8f9fa;
   opacity: 0.8;
+  line-height: 1.2;
 }
 
 .newsletter-form input.form-control {
@@ -128,12 +129,17 @@
   padding: 0.75rem 0;
   font-size: 1rem;
   background-color: transparent;
+  font-size: 1.125rem;
 }
 
 .newsletter-form input:focus {
   outline: none;
   box-shadow: none;
   border-color: white;
+}
+.newsletter-form button {
+  font-size: 1rem; /* match input */
+  padding: 0.75rem 1.5rem;
 }
 
 .pre-footer .small li {
@@ -556,5 +562,74 @@
   #featuredVehiclesCarousel .carousel-item .col-6 {
     flex: 0 0 25% !important;
     max-width: 25% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* 1) Stack heading above form, both left‑aligned */
+  .newsletter-section .row.align-items-center.justify-content-between {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .newsletter-section .col-md-4,
+  .newsletter-section .col-md-8 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .newsletter-section .col-md-4 {
+    margin-bottom: 1rem !important;
+    text-align: left !important;
+  }
+
+  /* 2) Stretch the form to fill its column */
+  .newsletter-section .col-md-8 .newsletter-form {
+    display: flex !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+  }
+
+  /* 3) Let the input fill remaining space, with proper flex‑shrink */
+  .newsletter-section .newsletter-form input.form-control {
+    flex: 1 1 auto !important;
+    min-width: 0 !important; /* prevents overflow in flex */
+    margin-bottom: 0 !important;
+  }
+
+  /* 4) Button stays its intrinsic size at the end */
+  .newsletter-section .newsletter-form button {
+    flex: 0 0 auto !important;
+    margin-left: 1rem !important;
+  }
+}
+
+/* Mobile: width < 768px (kept as before, button below input) */
+@media (max-width: 767.98px) {
+  .newsletter-section .row.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .newsletter-section .col-md-4,
+  .newsletter-section .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .newsletter-section .col-md-4 {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .newsletter-form {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .newsletter-form input.form-control {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+  .newsletter-form button {
+    width: 100% !important;
+    margin-left: 0 !important;
   }
 }
