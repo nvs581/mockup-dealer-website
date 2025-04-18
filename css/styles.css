@@ -326,6 +326,80 @@
   background-color: #d9d9d9;
 }
 
+.about-section {
+  position: relative;
+  color: #fff;
+  min-height: 50vh;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+.about-section .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-upper {
+  background: url("../images/about-section-upper.png") no-repeat center center;
+  background-size: cover;
+}
+
+.about-lower {
+  background: url("../images/about-section-lower.png") no-repeat center center;
+  background-size: cover;
+}
+.team-intro-link {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  position: relative;
+  font-weight: 500;
+}
+
+.team-intro-link::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 10rem;
+  color: #e70033;
+  font-size: 1.25em;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.team-intro-link:hover {
+  border-color: #e70033;
+}
+.team-intro-link:hover::after {
+  color: #e70033;
+}
+
+.about-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.about-section .team-intro {
+  padding: 2rem;
+}
+
+.about-section h2,
+.about-section p,
+.about-section .btn-outline-light {
+  color: #fff;
+}
+
 @media (max-width: 992px) {
   .custom-navbar {
     background-color: #000 !important;
