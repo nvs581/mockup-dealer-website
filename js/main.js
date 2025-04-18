@@ -1,15 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //
-  // 1️⃣ ScrollSpy
-  //
   new bootstrap.ScrollSpy(document.body, {
     target: ".custom-navbar",
     offset: 70,
   });
 
-  //
-  // 2️⃣ Featured Vehicles: indicators + swipe/drag
-  //
   (function setupFeaturedVehicles() {
     const carouselEl = document.getElementById("featuredVehiclesCarousel");
     const indicators = carouselEl.querySelector(".carousel-indicators");
@@ -20,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDown = false,
       startX = 0;
 
-    // build dots
     if (slides.length > 1) {
       indicators.style.display = "flex";
       slides.forEach((_, idx) => {
@@ -39,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
       indicators.remove();
     }
 
-    // swipe/drag handlers
     inner.style.cursor = "grab";
     inner.addEventListener("mousedown", (e) => {
       isDown = true;
@@ -80,15 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  //
-  // 3️⃣ Team Carousel: responsive rebuild into 2‑up or 3‑up slides
-  //
   (function setupTeamCarousel() {
     const carouselEl = document.getElementById("teamCarousel");
     const inner = carouselEl.querySelector(".carousel-inner");
     const indicators = carouselEl.querySelector(".carousel-indicators");
     const carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl);
-    // grab your photo containers
     const items = Array.from(inner.querySelectorAll(".col-6.col-md-4"));
     let currentPerSlide = null;
 
@@ -126,12 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", rebuild);
     rebuild();
 
-    // ——— START swipe/drag FOR TEAM CAROUSEL ———
     const SWIPE_THRESHOLD = 100;
     let isDown = false,
       startX = 0;
 
-    // prevent the img from hijacking drags
     inner.querySelectorAll("img").forEach((img) => {
       img.style.pointerEvents = "none";
     });
@@ -186,25 +172,19 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (diff < -SWIPE_THRESHOLD) carousel.next();
       carousel.cycle();
     });
-    // ——— END swipe/drag FOR TEAM CAROUSEL ———
   })();
 });
 
-//
-// 4️⃣ Featured Vehicles: responsive rebuild into 1‑up, 3‑up, or 4‑up slides
-//
 (function setupFeaturedVehiclesResponsive() {
   const carouselEl = document.getElementById("featuredVehiclesCarousel");
   const inner = carouselEl.querySelector(".carousel-inner");
   const indicators = carouselEl.querySelector(".carousel-indicators");
-  // grab all your existing item containers
   const items = Array.from(
     carouselEl.querySelectorAll(".carousel-item .col-6.col-md-3")
   );
   let currentPerSlide = null;
 
   function rebuild() {
-    // choose per‑slide count by width
     const w = window.innerWidth;
     let perSlide;
     if (w < 768) perSlide = 1;
@@ -214,11 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (perSlide === currentPerSlide) return;
     currentPerSlide = perSlide;
 
-    // clear old
     inner.innerHTML = "";
     indicators.innerHTML = "";
 
-    // build new slides & dots
     items.forEach((el, idx) => {
       if (idx % perSlide === 0) {
         const slide = document.createElement("div");
@@ -228,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
         slide.appendChild(row);
         inner.appendChild(slide);
 
-        // dot button
         const btn = document.createElement("button");
         btn.type = "button";
         btn.setAttribute("data-bs-target", "#featuredVehiclesCarousel");
@@ -239,7 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         indicators.appendChild(btn);
       }
-      // move the item into the last slide’s row
       inner.lastElementChild.querySelector(".row").appendChild(el);
     });
   }
@@ -286,7 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
       inner.lastElementChild.querySelector(".slide-wrapper").appendChild(item);
     });
 
-    // ←— Add this:
     const slideCount = inner.querySelectorAll(".carousel-item").length;
     indicators.style.display = slideCount < 2 ? "none" : "flex";
   }
