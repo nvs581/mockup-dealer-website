@@ -138,12 +138,16 @@
   border-color: white;
 }
 .newsletter-form button {
-  font-size: 1rem; /* match input */
+  font-size: 1rem;
   padding: 0.75rem 1.5rem;
 }
 
 .pre-footer .small li {
   margin-bottom: 0.25rem;
+}
+
+.pre-footer-logo {
+  filter: brightness(0) invert(1);
 }
 
 .pre-footer a:hover {
@@ -152,6 +156,44 @@
 
 .pre-footer .text-danger i {
   vertical-align: middle;
+}
+
+.pre-footer .hours-list li {
+  margin-bottom: 0.5rem;
+}
+
+.pre-footer .hours-list .day {
+  white-space: nowrap;
+}
+
+.pre-footer .hours-list .time {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pre-footer .social-icons .social-icon {
+  background-color: #dc3545;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.pre-footer .social-icons .social-icon:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+}
+.pre-footer .social-icons .social-icon:hover {
+  background-color: #c82333;
+}
+
+.vr.thick {
+  width: 3px !important;
 }
 
 .test-parts-section h4 {
@@ -566,7 +608,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  /* 1) Stack heading above form, both left‑aligned */
   .newsletter-section .row.align-items-center.justify-content-between {
     display: flex !important;
     flex-direction: column !important;
@@ -582,7 +623,6 @@
     text-align: left !important;
   }
 
-  /* 2) Stretch the form to fill its column */
   .newsletter-section .col-md-8 .newsletter-form {
     display: flex !important;
     width: 100% !important;
@@ -590,21 +630,18 @@
     align-items: center !important;
   }
 
-  /* 3) Let the input fill remaining space, with proper flex‑shrink */
   .newsletter-section .newsletter-form input.form-control {
     flex: 1 1 auto !important;
-    min-width: 0 !important; /* prevents overflow in flex */
+    min-width: 0 !important;
     margin-bottom: 0 !important;
   }
 
-  /* 4) Button stays its intrinsic size at the end */
   .newsletter-section .newsletter-form button {
     flex: 0 0 auto !important;
     margin-left: 1rem !important;
   }
 }
 
-/* Mobile: width < 768px (kept as before, button below input) */
 @media (max-width: 767.98px) {
   .newsletter-section .row.align-items-center {
     flex-direction: column;
