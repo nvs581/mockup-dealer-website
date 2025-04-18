@@ -247,3 +247,50 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", rebuild);
   rebuild();
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const carouselEl = document.getElementById("featuredReviewsCarousel");
+  const inner = carouselEl.querySelector(".carousel-inner");
+  const indicators = carouselEl.querySelector(".carousel-indicators");
+  const items = Array.from(inner.querySelectorAll(".review-item"));
+  let current = 0;
+
+  function build() {
+    const w = window.innerWidth;
+    let perSlide = w < 768 ? 1 : w < 992 ? 3 : 5;
+    if (perSlide === current) return;
+    current = perSlide;
+
+    inner.innerHTML = "";
+    indicators.innerHTML = "";
+
+    items.forEach((item, i) => {
+      if (i % perSlide === 0) {
+        const slide = document.createElement("div");
+        slide.className = "carousel-item" + (i === 0 ? " active" : "");
+        const wrapper = document.createElement("div");
+        wrapper.className = "slide-wrapper";
+        slide.appendChild(wrapper);
+        inner.appendChild(slide);
+
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.setAttribute("data-bs-target", "#featuredReviewsCarousel");
+        dot.setAttribute("data-bs-slide-to", String(i / perSlide));
+        if (i === 0) {
+          dot.classList.add("active");
+          dot.setAttribute("aria-current", "true");
+        }
+        indicators.append(dot);
+      }
+      inner.lastElementChild.querySelector(".slide-wrapper").appendChild(item);
+    });
+
+    // ←— Add this:
+    const slideCount = inner.querySelectorAll(".carousel-item").length;
+    indicators.style.display = slideCount < 2 ? "none" : "flex";
+  }
+
+  window.addEventListener("resize", build);
+  build();
+});
