@@ -64,6 +64,35 @@ body {
   font-weight: 500;
   color: white !important;
   text-align: center;
+  .nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    border-radius: 0.25rem;
+    z-index: 9999;
+  }
+
+  .nav-item .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  /* Hover dropdowns for desktop */
+  @media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  }
+
   border-radius: 0;
 }
 
@@ -911,7 +940,6 @@ body {
 @media (max-width: 767.98px) {
   .team-slider .slick-prev {
     left: 10px !important;
-    /* if you need to bump it down/up: */
     top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 2;
@@ -937,5 +965,33 @@ body {
     width: 100%;
     height: auto;
     max-height: 320px;
+  }
+}
+
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  z-index: 9999;
+}
+
+.nav-item .dropdown-menu .dropdown-item {
+  padding: 0.5rem 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
   }
 }
