@@ -61,6 +61,7 @@
       </div>
     </nav>
 
+    <!-- Mobile Nav -->
     <div
       class="offcanvas offcanvas-start"
       tabindex="-1"
@@ -79,7 +80,19 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link highlight-red" href="#amazing">Amazing Deals</a>
+            <a
+              class="nav-link highlight-red"
+              href="#amazing"
+              style="
+                background-color: red !important;
+                color: white !important;
+                padding: 5px 10px !important;
+                border-radius: 4px !important;
+                display: inline-block !important;
+              "
+            >
+              <span style="color: white !important">Amazing Deals</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#motorcycles">Motorcycles</a>
@@ -151,6 +164,8 @@
       </div>
     </div>
 
+    <!-- Main Nav -->
+
     <section class="hero-section position-relative text-white">
       <nav
         class="navbar navbar-expand-lg custom-navbar position-absolute top-0 start-0 w-100"
@@ -175,8 +190,11 @@
                 </a>
               </li>
               <li class="nav-item px-3 border-start border-white">
-                <a class="nav-link text-white" href="#amazing">Amazing Deals</a>
+                <a class="nav-link highlight-red" href="#amazing">
+                  Amazing Deals
+                </a>
               </li>
+
               <li class="nav-item px-3 border-start border-white">
                 <a class="nav-link text-white" href="#motorcycles"
                   >Motorcycles</a
@@ -214,18 +232,17 @@
             placeholder="Search Rides"
           />
           <div class="hero-buttons d-flex flex-wrap gap-2">
-            <button class="btn btn-danger">Shop New</button>
-            <button class="btn btn-secondary">Shop Pre‑Owned</button>
-            <button class="btn btn-outline-light specials">Specials</button>
+            <button class="btn btn-shopnew">Shop New</button>
+            <button class="btn btn-preowned">Shop Pre‑Owned</button>
+            <button class="btn btn-specials">Specials</button>
           </div>
         </div>
       </div>
     </section>
-
     <section class="py-5 bg-white text-center">
       <div class="container">
-        <div class="row g-4 justify-content-center">
-          <div class="col-6 col-sm-4 col-lg-2">
+        <div class="row g-4 row-cols-2 row-cols-md-3 row-cols-lg-6">
+          <div class="col">
             <img
               src="images/motor-adventure.png"
               class="img-fluid mb-2"
@@ -234,7 +251,7 @@
             <h6 class="fw-bold">ADVENTURE</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
           </div>
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col">
             <img
               src="images/motor-modernclassics.png"
               class="img-fluid mb-2"
@@ -243,7 +260,7 @@
             <h6 class="fw-bold">MODERN CLASSICS</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
           </div>
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col">
             <img
               src="images/motocross.png"
               class="img-fluid mb-2"
@@ -252,7 +269,7 @@
             <h6 class="fw-bold">MOTOCROSS</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
           </div>
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col">
             <img
               src="images/roadsters.png"
               class="img-fluid mb-2"
@@ -261,7 +278,7 @@
             <h6 class="fw-bold">ROADSTERS</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
           </div>
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col">
             <img
               src="images/rocket 3.png"
               class="img-fluid mb-2"
@@ -270,7 +287,7 @@
             <h6 class="fw-bold">ROCKET 3</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
           </div>
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col">
             <img src="images/sport.png" class="img-fluid mb-2" alt="Sport" />
             <h6 class="fw-bold">SPORT</h6>
             <a href="#" class="text-danger text-decoration-none">SHOP NOW</a>
@@ -300,7 +317,6 @@
               <h3 class="fw-bold mb-4">
                 VIEW CURRENT PROMOTIONS<br />AND EVENTS
               </h3>
-              <!-- always center the links vertically in their row -->
               <div
                 class="mt-4 d-flex flex-column flex-sm-row align-items-center"
               >
@@ -1037,11 +1053,9 @@
 
     <script type="text/javascript">
       $(function () {
-        // Helper to init a slick slider with conditional dots
         function initConditionalDots(selector, slickOptions) {
           var $slider = $(selector);
 
-          // When slick first initializes or hits a responsive breakpoint...
           $slider.on("init breakpoint", function (event, slick) {
             if (slick.slideCount <= slick.options.slidesToShow) {
               slick.$dots.hide();
@@ -1053,7 +1067,7 @@
           // Now actually initialize slick
           $slider.slick(
             $.extend({}, slickOptions, {
-              dots: true, // always ask slick to generate dots; we'll hide/show as needed
+              dots: true,
             })
           );
         }
@@ -1093,9 +1107,24 @@
           autoplaySpeed: 3000,
           pauseOnHover: true,
           responsive: [
-            { breakpoint: 1400, settings: { slidesToShow: 3 } },
-            { breakpoint: 992, settings: { slidesToShow: 2 } },
-            { breakpoint: 768, settings: { slidesToShow: 1 } },
+            {
+              breakpoint: 1400,
+              settings: {
+                slidesToShow: 3,
+              },
+            },
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+              },
+            },
           ],
         });
       });
