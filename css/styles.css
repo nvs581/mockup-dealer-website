@@ -6,6 +6,8 @@ body {
 
 .header-top {
   font-size: 0.9rem;
+  padding-left: 4.5rem;
+  padding-left: 4.5rem;
 }
 
 .header-top .border-bottom {
@@ -17,12 +19,27 @@ body {
 }
 
 .header-top .btn {
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.35rem 0.75rem;
 }
 
 .header-top a i {
   font-size: 1rem;
+}
+
+.value-trade-link {
+  color: #eb1024;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.value-trade-link:hover {
+  text-decoration: underline;
 }
 
 /* NavBar */
