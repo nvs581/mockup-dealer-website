@@ -6,8 +6,6 @@ body {
 
 .header-top {
   font-size: 0.9rem;
-  padding-left: 4.5rem;
-  padding-left: 4.5rem;
 }
 
 .header-top .border-bottom {
@@ -19,7 +17,7 @@ body {
 }
 
 .header-top .btn {
-  font-size: 1rem;
+  font-size: 0.75rem;
   padding: 0.35rem 0.75rem;
 }
 
