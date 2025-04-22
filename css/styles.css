@@ -1,7 +1,17 @@
+:root {
+  --site-gutter: 3.75rem; /* 60px ÷ 16px */
+}
+
 html,
 body {
   overflow-x: hidden;
 }
+
+body {
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
+}
+
 /* Header */
 
 .header-top {
@@ -888,10 +898,10 @@ body {
   }
 }
 
-/*———————————————————————————
-  Tablet & small desktops (768px–1024px)
-———————————————————————————*/
+/*  Tablet & small desktops (768px–1024px) */
+
 @media (min-width: 768px) and (max-width: 1024px) {
+  /* padding tweaks for dark half */
   .col-md-6.bg-dark.p-5 {
     padding: clamp(0.75rem, 2vw, 2.5rem) clamp(0.75rem, 1.5vw, 2rem) !important;
   }
@@ -932,6 +942,38 @@ body {
 
   .col-md-6.bg-dark {
     overflow-x: auto;
+  }
+
+  .pre-footer > .container-fluid > .row.g-0 > .col-md-6 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .pre-footer {
+    font-size: 1rem;
+  }
+  .pre-footer h6 {
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+  .pre-footer .pre-footer-logo p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .pre-footer .hours-list li,
+  .pre-footer .hours-list li .day,
+  .pre-footer .hours-list li .time {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .pre-footer .list-unstyled.small {
+    font-size: 1rem !important;
+  }
+  .pre-footer .col-md-6.bg-white ul li a {
+    font-size: 1rem;
+  }
+  .pre-footer .col-md-6.bg-dark > .row {
+    padding: 3rem;
   }
 }
 
@@ -1029,4 +1071,21 @@ body {
   .nav-item.dropdown:hover .dropdown-menu {
     display: block;
   }
+}
+
+.hero-section,
+.promotion-section,
+.test-parts-section,
+.meet-team-section,
+.about-section,
+.pre-footer,
+.featured-review,
+.newsletter-section,
+.footer-box {
+  /* cancel the body padding */
+  margin-left: calc(var(--site-gutter) * -1);
+  margin-right: calc(var(--site-gutter) * -1);
+  /* ensure their own padding stays zero */
+  padding-left: 0;
+  padding-right: 0;
 }
