@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --site-gutter: 3.75rem; /* 60px ÷ 16px */
 }
@@ -8,8 +10,13 @@ body {
 }
 
 body {
-  padding-left: var(--site-gutter);
-  padding-right: var(--site-gutter);
+  font-family: "Work Sans", sans-serif;
+}
+
+a,
+button,
+.btn {
+  transition: all 0.2s ease;
 }
 
 /* Header */
@@ -75,36 +82,42 @@ body {
   font-weight: 500;
   color: white !important;
   text-align: center;
-  .nav-item .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    margin-top: 0.5rem;
-    padding: 0.5rem 0;
-    border-radius: 0.25rem;
-    z-index: 9999;
-  }
+}
 
-  .nav-item .dropdown-menu .dropdown-item {
-    padding: 0.5rem 1rem;
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-  }
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  z-index: 9999;
+}
 
-  .nav-item .dropdown-menu .dropdown-item:hover {
-    background-color: #f8f9fa;
-  }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #dc3545;
+  transition: width 0.25s;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+.nav-item .dropdown-menu .dropdown-item {
+  padding: 0.5rem 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-  /* Hover dropdowns for desktop */
-  @media (min-width: 992px) {
-    .nav-item.dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  }
-
-  border-radius: 0;
+.nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
 }
 
 .custom-navbar .nav-link.highlight-red {
@@ -121,11 +134,13 @@ body {
   background-image: url("data:image/svg+xml;charset=utf8,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.8)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* HERO SECTION */
+
 .hero-section {
   background-image: url("../images/image\ 39.png");
   background-size: cover;
   background-position: center;
-  min-height: 50vh;
+  min-height: 35vh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -149,6 +164,9 @@ body {
 .hero-section .container {
   position: relative;
   z-index: 2;
+  max-width: 2000px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .hero-form {
@@ -157,15 +175,15 @@ body {
 }
 
 .hero-content {
-  width: 70vw;
-  max-width: 1000px;
-  padding: 0 1rem;
+  width: 90vw;
+  max-width: 2000px;
+  padding: 4rem 1rem 2rem;
   box-sizing: border-box;
 }
 
 .hero-form {
   width: 100%;
-  max-width: 1000px;
+  max-width: 2000px;
   margin: 0 auto;
 }
 
@@ -204,6 +222,28 @@ body {
   color: #aaa;
   opacity: 1;
   text-transform: uppercase;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+
+.hero-content p.lead {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+section.py-5.bg-white.text-center .row > .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.py-5.bg-white.text-center .row > .col h6 {
+  margin-top: auto;
 }
 
 .test-ride-bg {
@@ -247,10 +287,36 @@ body {
   background-color: #c10e1e;
 }
 
+/* Motor Section */
+
+.motor-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.motor-section .container {
+  max-width: 100%;
+  padding: 0 2rem;
+}
+
+.motor-section .shop-link {
+  color: #221f1f;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  border-bottom: 1px solid #221f1f;
+  padding-bottom: 0.2rem;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.motor-section .shop-link:hover {
+  color: #eb1024;
+  border-color: #eb1024;
+}
+
 /* Promotions Section */
 
 .promotion-section {
-  background-color: white;
   position: relative;
   overflow: hidden;
 }
@@ -303,6 +369,22 @@ body {
 
 .promotion-link:hover::after {
   color: #e70033;
+}
+
+.promotion-section .col-md-6.d-none.d-md-block {
+  padding: 4rem 0;
+}
+
+.promotion-content h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.promotion-link {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 /* Featured Vehicle Section */
@@ -524,10 +606,24 @@ body {
 /* Map */
 
 .map-responsive {
-  overflow: hidden;
   position: relative;
-  height: 450px;
+  overflow: hidden;
+
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Newsletter */
@@ -718,7 +814,7 @@ body {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 1024.98px) {
   .newsletter-section .row.align-items-center.justify-content-between {
     display: flex !important;
     flex-direction: column !important;
@@ -789,35 +885,7 @@ body {
   }
 }
 
-@media (max-width: 767.98px) {
-  .footer-credits,
-  .footer-logo,
-  .footer-links,
-  .footer-disclaimer {
-    width: 100% !important;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex: none;
-  }
-
-  .footer-credits {
-    order: 1;
-  }
-
-  .footer-logo {
-    order: 2;
-  }
-
-  .footer-links {
-    order: 3;
-  }
-
-  .footer-disclaimer {
-    order: 4;
-  }
-}
-
+/* tablet promotion (≥768px && ≤991px) */
 @media (max-width: 991px) and (min-width: 768px) {
   .panorama-bg {
     height: 85%;
@@ -836,6 +904,13 @@ body {
     gap: 1rem;
   }
 
+  .promotion-content h3 {
+    width: 100% !important;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
   .promotion-link {
     display: inline-flex;
     align-items: center;
@@ -843,6 +918,7 @@ body {
     padding-bottom: 0.2rem;
     border-bottom: 1px solid #fff;
     margin: 0;
+    font-size: 1.125rem; /* ~18px */
   }
 
   .promotion-link::after {
@@ -852,6 +928,7 @@ body {
   }
 }
 
+/* mobile promotion (≤767px) */
 @media (max-width: 767px) {
   .panorama-bg {
     height: 85%;
@@ -865,7 +942,10 @@ body {
   }
 
   .promotion-content h3 {
-    text-align: left;
+    width: 100% !important; /* full width for wrapping */
+    font-size: clamp(1.5rem, 6vw, 2rem) !important; /* 24px → 32px */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
   }
 
   .promotion-content .d-flex {
@@ -878,7 +958,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 160px;
+    max-width: 260px;
     line-height: 1;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid #fff;
@@ -887,6 +967,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
+    font-size: 1rem !important;
   }
 
   .promotion-link::after {
@@ -896,12 +977,34 @@ body {
     vertical-align: middle;
     color: #fff;
   }
+
+  .promotion-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .promotion-section .panorama-bg {
+    top: 0 !important;
+    height: 100% !important;
+  }
+
+  .hero-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-section + .promotion-section,
+  .promotion-section + section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
 
-/*  Tablet & small desktops (768px–1024px) */
+/* Pre Footer */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* padding tweaks for dark half */
   .col-md-6.bg-dark.p-5 {
     padding: clamp(0.75rem, 2vw, 2.5rem) clamp(0.75rem, 1.5vw, 2rem) !important;
   }
@@ -1013,6 +1116,9 @@ body {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
   }
+  .pre-footer .col-md-6.bg-dark > .row {
+    padding: 2rem;
+  }
 }
 @media (max-width: 767.98px) {
   .team-slider .slick-prev {
@@ -1045,6 +1151,46 @@ body {
   }
 }
 
+@media (max-width: 767.98px) {
+  .footer-credits,
+  .footer-logo,
+  .footer-links,
+  .footer-disclaimer {
+    width: 100% !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex: none;
+  }
+
+  .footer-credits {
+    order: 1;
+  }
+
+  .footer-logo {
+    order: 2;
+  }
+
+  .footer-links {
+    order: 3;
+  }
+
+  .footer-disclaimer {
+    order: 4;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer-box {
+    font-size: 0.775rem;
+  }
+
+  .footer-box .footer-container {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
 .nav-item .dropdown-menu {
   display: none;
   position: absolute;
@@ -1073,19 +1219,61 @@ body {
   }
 }
 
-.hero-section,
-.promotion-section,
-.test-parts-section,
-.meet-team-section,
-.about-section,
-.pre-footer,
-.featured-review,
-.newsletter-section,
-.footer-box {
-  /* cancel the body padding */
-  margin-left: calc(var(--site-gutter) * -1);
-  margin-right: calc(var(--site-gutter) * -1);
-  /* ensure their own padding stays zero */
-  padding-left: 0;
-  padding-right: 0;
+@media (min-width: 1025px) {
+  body {
+    padding-left: var(--site-gutter);
+    padding-right: var(--site-gutter);
+  }
+
+  .hero-section,
+  .promotion-section,
+  .test-parts-section,
+  .meet-team-section,
+  .about-section,
+  .pre-footer,
+  .featured-review,
+  .dynamic-image-section,
+  .newsletter-section,
+  .footer-box {
+    margin-left: calc(var(--site-gutter) * -1);
+    margin-right: calc(var(--site-gutter) * -1);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-content p.lead {
+    display: none !important;
+  }
+  .hero-content {
+    padding: 0rem 1rem 2rem;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    padding: 0rem 1rem 1.5rem;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1021px) {
+  .test-ride-bg,
+  .parts-accessories-bg {
+    min-height: 15vh;
+  }
+  .test-ride-bg h4,
+  .parts-accessories-bg h4 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
 }
