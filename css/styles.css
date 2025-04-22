@@ -32,9 +32,27 @@ button {
 /*********************************************
             Header Section         
  *********************************************/
-.header-top {
+ .header-top {
   font-size: 0.9rem;
   padding: 0 3.75rem;
+}
+
+.phone-link:hover, .location-link:hover, .value-trade-link:hover {
+  transform: scale(1.05);
+  color: #c82333;
+}
+
+.social-media-links a {
+  display: inline-block;
+}
+.social-media-links a:hover {
+  transform: translateY(-3px);
+  color: currentColor;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header-top a i {
@@ -45,8 +63,11 @@ button {
   color: #eb1024;
 }
 
-.value-trade-link:hover {
-  text-decoration: underline;
+.value-trade-link img {
+  transition: transform 0.3s ease;
+}
+.value-trade-link:hover img {
+  transform: rotate(20deg);
 }
 
 /*********************************************
@@ -232,7 +253,7 @@ button {
 
 .motor-section .container {
   max-width: 100%;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .motor-section .shop-link {
@@ -241,27 +262,22 @@ button {
   font-weight: 600;
   padding-bottom: 0.2rem;
   text-decoration: none;
-}
-
-.motor-section .shop-link::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: 0;
-  width: 100%; height: 1px;
-  background: #221f1f;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-.motor-section .shop-link:hover::after {
-  transform: scaleX(1);
+  border-bottom: 1px #221f1f solid;
 }
 
 .motor-section .shop-link:hover {
   color: #eb1024;
   border-color: #eb1024;
 }
+
+.motor-section .img-fluid {
+  transition: transform .2s ease;
+}
+
+.motor-section .col:has(.shop-link:hover) .img-fluid {
+  transform: translateY(-8px);
+}
+
 
 /*********************************************
             Promotions Section         
@@ -358,7 +374,7 @@ button {
 
 .meet-team-section {
   background-color: #282828;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .meet-team-section .team-intro {
@@ -380,8 +396,9 @@ button {
 }
 
 .team-photo {
-  width: 125px;
+  width: 80%;
   border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .team-slider .slick-dots {
@@ -442,15 +459,17 @@ button {
   border-bottom: 1px solid #fff;
   padding-bottom: 0.5rem;
   color: #fff;
+  max-width: 280px;
+  width: 100%;
+  display: inline-flex
 }
 
 .team-intro-link::after {
   content: "›";
-  margin-left: 1rem;
+  margin-left: auto;
   font-size: 1.25em;
   line-height: 1;
   color: #e70033;
-  transition: color 0.3s;
 }
 
 .team-intro-link:hover {
@@ -543,6 +562,19 @@ button {
 .reviews-slider .review-item .small {
   margin-top: auto;
   font-size: 0.8rem;
+}
+
+.reviews-slider .review-item .small {
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+.reviews-slider .review-item a.small {
+  color: #7A7A7A;
+}
+
+.reviews-slider .review-item a.small:hover {
+  color: #00d9ff;
 }
 
 /*********************************************
@@ -706,7 +738,7 @@ button {
             Navbar and Hero Section       
  *********************************************/
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .custom-navbar {
     background-color: #000;
   }
@@ -723,13 +755,10 @@ button {
   .custom-navbar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
+  
 }
 
 @media (max-width: 850px) {
-  /* .header-top,
-  .custom-navbar {
-    display: none;
-  } */
 
   .mobile-header {
     display: flex;
@@ -803,6 +832,16 @@ button {
   .header-top,
   .custom-navbar {
     display: none !important;
+  }
+}
+
+/*********************************************
+            Reviews Section         
+ *********************************************/
+
+@media (max-width: 768px) {
+  .reviews-slider .review-item{
+    padding: 0;
   }
 }
 
@@ -999,7 +1038,7 @@ button {
     margin-bottom: 0.75rem;
   }
   .pre-footer .col-md-6.bg-dark > .row {
-    padding: 2rem;
+    padding: 0.5rem;
   }
 }
 
@@ -1008,15 +1047,19 @@ button {
  *********************************************/
 
 @media (max-width: 767.98px) {
+  .meet-team-section {
+    padding: 1.5rem 1rem !important;
+  }
+
   .team-slider .slick-prev {
-    left: 10px !important;
+    left: -5% !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 2;
   }
 
   .team-slider .slick-next {
-    right: 10px !important;
+    right: -5% !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 2;
@@ -1144,7 +1187,7 @@ button {
     display: none !important;
   }
   .hero-content {
-    padding: 0rem 1rem 2rem;
+    padding: 0rem 1rem 2rem !important;
   }
 
   .hero-content h1 {
@@ -1298,4 +1341,68 @@ button {
   }
 }
 
+@media (max-width: 767.98px) {
+  .hero-form {
+    gap: 0.5rem; 
+  }
+}
 
+.vehicles-slider .slick-track {
+  display: flex !important; 
+  gap: 1rem;                
+}
+
+.vehicles-slider .slick-list,
+.vehicles-slider .slick-slide {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+@media (max-width: 992px) {
+  .vehicles-slider .slick-track { gap: 1rem; }
+}
+
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .header-top .row {
+    flex-wrap: nowrap !important;
+  }
+
+  .header-top .col-md-6 {
+    width: 50% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .header-top .location-link,
+  .header-top .phone-link,
+  .header-top .value-trade-link,
+  .header-top .btn-sm {
+    font-size: 0.65rem !important;
+  }
+
+  .header-top .location-link i,
+  .header-top .phone-link i,
+  .header-top .social-media-links i {
+    font-size: 0.75rem !important;
+  }
+
+  .header-top .btn-sm img,
+  .header-top .value-trade-link img {
+    height: 0.8rem !important;
+  }
+
+  .header-top .d-flex.justify-content-between {
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .header-top .d-flex.align-items-center.justify-content-end.flex-wrap {
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .header-top .social-media-links a {
+    margin-right: 0.25rem !important;
+  }
+}
