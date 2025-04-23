@@ -1443,11 +1443,13 @@ button {
   }
 
   .promotion-section .panorama-bg {
-    top: 0 !important;
+    background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url("../images/panorama-bg-1.jpg") center top / cover no-repeat;
     height: 100% !important;
-    background-image: url("../images/panorama-bg-1.jpg") !important;
-    background-position: center top;
+    top: 0 !important;
   }
+  
 
   .hero-section {
     margin-bottom: 0 !important;
