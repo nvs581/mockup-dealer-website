@@ -279,6 +279,26 @@ button {
 }
 
 
+.featured-motorcycles .row .col {
+  flex: 0 0 calc(100%/6);
+  max-width: calc(100%/6);
+}
+
+@media (max-width: 1024px) {
+  .featured-motorcycles .row .col {
+    flex: 0 0 calc(100%/3);
+    max-width: calc(100%/3);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-motorcycles .row .col {
+    flex: 0 0 calc(100%/2);
+    max-width: calc(100%/2);
+  }
+}
+
+
 /*********************************************
             Promotions Section         
  *********************************************/
@@ -826,7 +846,6 @@ button {
     margin: 0 !important;
   }
 }
-
 
 @media (max-width: 850px) {
 
