@@ -752,7 +752,32 @@ button {
             Navbar and Hero Section       
  *********************************************/
 
-@media (max-width: 1024px) {
+ @media (max-width: 1024px) {
+
+  .custom-navbar .container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .custom-navbar .navbar-toggler {
+    align-self: flex-end !important;
+    margin-left: 0 !important;
+  }
+  
+  .custom-navbar .navbar-toggler {
+    display: block !important;
+  }
+
+  .custom-navbar .navbar-collapse.collapse:not(.show) {
+    display: none !important;
+  }
+  .custom-navbar .navbar-collapse.collapse.show {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    background-color: #000 !important;
+  }
+
   .custom-navbar {
     background-color: #000;
   }
@@ -769,8 +794,39 @@ button {
   .custom-navbar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
-  
+
+  .custom-navbar .navbar-collapse.show {
+    width: 100% !important;
+    background-color: #000 !important;
+  }
+
+  .custom-navbar .navbar-collapse .container {
+    padding: 0 !important;
+  }
+
+  .custom-navbar .navbar-nav {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .custom-navbar .navbar-nav .nav-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
 }
+
 
 @media (max-width: 850px) {
 
