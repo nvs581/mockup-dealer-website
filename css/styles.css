@@ -652,6 +652,31 @@ button {
   padding: 0.75rem 1.5rem;
 }
 
+/* standard */
+.newsletter-section .newsletter-form input::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* vendor prefixes for broader support */
+.newsletter-section .newsletter-form input::-webkit-input-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+.newsletter-section .newsletter-form input::-moz-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+.newsletter-section .newsletter-form input:-ms-input-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+.newsletter-section .newsletter-form input::-ms-input-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+
 /*********************************************
            Pre footer section         
  *********************************************/
