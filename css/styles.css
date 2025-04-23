@@ -1040,6 +1040,9 @@ button {
   .pre-footer .col-md-6.bg-dark > .row {
     padding: 0.5rem;
   }
+  .col-md-6.bg-white.text-dark.p-5 {
+    padding: 1.5rem 1.5rem !important;
+  }
 }
 
 /*********************************************
