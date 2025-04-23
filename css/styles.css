@@ -1086,18 +1086,15 @@ button {
  *********************************************/
 
  @media (max-width: 767.98px) {
-  /* stack container vertically */
   .footer-box .footer-container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
   }
 
-  /* centre each part and force full width */
   .footer-box .footer-credits,
   .footer-box .footer-logo,
-  .footer-box .footer-links,
-  .footer-box .footer-disclaimer {
+  .footer-box .footer-links {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
@@ -1106,23 +1103,35 @@ button {
     font-size: 0.5rem !important;
   }
 
-  /* undo Bootstrap’s right-align on links */
   .footer-box .footer-links .d-flex {
     justify-content: center !important;
   }
 
-  /* explicit stack order */
   .footer-box .footer-credits    { order: 1 !important; }
   .footer-box .footer-logo       { order: 2 !important; }
   .footer-box .footer-links      { order: 3 !important; }
   .footer-box .footer-disclaimer { order: 4 !important; }
 
-  /* adjust font and padding */
+  .footer-box .footer-disclaimer {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.5rem !important;
+    order: 4 !important;
+    margin-top: 2rem !important;  
+  }
+
   .footer-box {
     font-size: 0.775rem !important;
   }
   .footer-box .footer-container {
     padding: 0 1.75rem !important;
+  }
+  .footer-box .footer-logo img {
+    height: 30px !important;
+    width: auto   !important;
+    margin-bottom: 1rem;
   }
 }
 
@@ -1149,6 +1158,7 @@ button {
   .footer-logo img {
     height: 40px !important;
   }
+  
 }
 
 @media (min-width: 1025px) {
