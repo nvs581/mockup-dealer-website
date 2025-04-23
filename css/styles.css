@@ -1261,6 +1261,7 @@ button {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  
   .footer-box .footer-container {
     display: flex !important;
     justify-content: space-between !important;
@@ -1300,7 +1301,6 @@ button {
     text-align: center;
   }
 }
-
 
 
 @media (min-width: 1025px) {
