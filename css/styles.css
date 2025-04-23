@@ -1137,29 +1137,46 @@ button {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .footer-box .footer-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    flex-wrap: wrap !important;
     padding: 0 2.5rem !important;
   }
 
-  .footer-box {
-    font-size: clamp(0.5rem, 2.5vw, 0.775rem) !important;
-  }
-
-  .footer-credits p {
-    white-space: nowrap;
+  .footer-box .footer-credits {
+    order: 1;
     margin: 0;
-    line-height: 1.2;
+    font-size: 0.65rem;
   }
 
-  .footer-links a {
-    white-space: nowrap;
-    font-size: inherit;
+  .footer-box .footer-links {
+    order: 2;
+    margin: 0 !important;
+  }
+  .footer-box .footer-links .d-flex {
+    justify-content: flex-end !important;
+    align-items: center;
   }
 
-  .footer-logo img {
+  .footer-box .footer-logo {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0.5rem 0 1rem !important;
+  }
+  .footer-box .footer-logo img {
     height: 40px !important;
   }
-  
+
+  .footer-box .footer-disclaimer {
+    order: 4;
+    flex-basis: 100%;
+    margin-top: 1rem !important;
+    text-align: center;
+  }
 }
+
+
 
 @media (min-width: 1025px) {
   .footer-credits,
