@@ -589,6 +589,20 @@ button {
   padding-bottom: 30%;
 }
 
+/* Tablet (768px–1024px): taller map */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .map-responsive {
+    padding-bottom: 50% !important;  
+  }
+}
+
+/* Mobile (<768px): even taller */
+@media (max-width: 767px) {
+  .map-responsive {
+    padding-bottom: 100% !important;  
+  }
+}
+
 /*********************************************
             News Letter Section         
  *********************************************/
